@@ -1,8 +1,6 @@
 package pl.sda;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Book {
     private String title;
@@ -28,6 +26,19 @@ public class Book {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Double.compare(book.price, price) == 0 && year == book.year && Objects.equals(title, book.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, price, year);
+    }
+
     public static void main(String[] args) {
         Comparator<Book> comparator = new Comparator<Book>() {
             @Override
@@ -49,6 +60,10 @@ public class Book {
 
         System.out.println(books);
 
+        Set<Book> bookHashSet = new HashSet<>();
+        bookHashSet.add(new Book("Abc",123,1324));
+        bookHashSet.add(new Book("Abc",123,1324));
+        System.out.println(bookHashSet);
     }
 
 
