@@ -1,8 +1,9 @@
 package pl.sda;
 
 import java.util.*;
+import java.util.Collections;
 
-public class Book {
+public class Book implements Comparable<Book>{
     private String title;
     private double price;
     private int year;
@@ -16,6 +17,7 @@ public class Book {
     public int getYear() {
         return year;
     }
+
 
     @Override
     public String toString() {
@@ -60,11 +62,21 @@ public class Book {
 
         System.out.println(books);
 
-        Set<Book> bookHashSet = new HashSet<>();
-        bookHashSet.add(new Book("Abc",123,1324));
-        bookHashSet.add(new Book("Abc",123,1324));
-        System.out.println(bookHashSet);
+        Collections.sort(books);
+
+        System.out.println(books);
+
+        Set<Book> bookSet = new HashSet<>();
+        bookSet.add(new Book("Kaktus", 100.0f, 1999));
+        bookSet.add(new Book("Kaktus", 100.0f, 1999));
+
+        System.out.println(bookSet);
+
     }
 
 
+    @Override
+    public int compareTo(Book o) {
+        return (int) (this.price - o.price);
+    }
 }
