@@ -1,10 +1,11 @@
 package pl.sda;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Book {
+public class Book implements Comparable<Book>{
     private String title;
     private double price;
     private int year;
@@ -18,6 +19,7 @@ public class Book {
     public int getYear() {
         return year;
     }
+
 
     @Override
     public String toString() {
@@ -49,7 +51,15 @@ public class Book {
 
         System.out.println(books);
 
+        Collections.sort(books);
+
+        System.out.println(books);
+
     }
 
 
+    @Override
+    public int compareTo(Book o) {
+        return (int) (this.price - o.price);
+    }
 }
