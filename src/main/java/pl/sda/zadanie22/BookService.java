@@ -65,4 +65,14 @@ public class BookService {
 
 
     }
+
+    public List<Book> getBooksWith3OrMoreAuthors() {
+        List<Book> tmp = new ArrayList<>();
+        for (Book book : listOfBooks) {
+            if (book.getListOfAuthors().size() > 2) {
+                tmp.add(book);
+            }
+        }
+        return tmp;
+    }
 }
