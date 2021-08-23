@@ -3,22 +3,22 @@ package pl.sda.zadanie2;
 import java.util.Objects;
 
 public class Film {
-    private String gender;
+    private String genre;
     private String tilte;
     private Boolean borrowed;
 
     public Film(String gender, String tilte, Boolean borrowed) {
-        this.gender = gender;
+        this.genre = gender;
         this.tilte = tilte;
         this.borrowed = borrowed;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getTilte() {
@@ -42,18 +42,18 @@ public class Film {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
-        return Objects.equals(gender, film.gender) && Objects.equals(tilte, film.tilte) && Objects.equals(borrowed, film.borrowed);
+        return Objects.equals(genre, film.genre) && Objects.equals(tilte, film.tilte) && Objects.equals(borrowed, film.borrowed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gender, tilte, borrowed);
+        return Objects.hash(genre, tilte, borrowed);
     }
 
     @Override
     public String toString() {
         return "Film{" +
-                "gender='" + gender + '\'' +
+                "gender='" + genre + '\'' +
                 ", tilte='" + tilte + '\'' +
                 ", borrowed=" + borrowed +
                 '}';
