@@ -18,23 +18,24 @@ public class Wypożyczalnia {
     }
 
     public void addMovie(Film film){
-        if (movieMap.containsKey(film.getGenre())){
-            List<Film> films = movieMap.get(film.getGenre());
-            films.add(film);
-            movieMap.put(film.getGenre(),films);
+        String gatunekDodawanegoFilmu = film.getGenre();
+        if (movieMap.containsKey(gatunekDodawanegoFilmu)){
+            List<Film> filmyDlaGatunkuDodawanegoFilmu = movieMap.get(gatunekDodawanegoFilmu);
+            filmyDlaGatunkuDodawanegoFilmu.add(film);
+            movieMap.put(gatunekDodawanegoFilmu,filmyDlaGatunkuDodawanegoFilmu);
         }else {
             List<Film> listaFilmow = new ArrayList<>();
             listaFilmow.add(film);
-            movieMap.put(film.getGenre(),listaFilmow);
+            movieMap.put(gatunekDodawanegoFilmu,listaFilmow);
         }
     }
 
     public void borrowMovie(String title) {
         Film szukanyFilm = null;
-        for (List<Film> filmy : movieMap.values()) {
-            for (Film film : filmy) {
-                if (film.getTilte().equals(title)) {
-                    szukanyFilm = film;
+        for (List<Film> filmyWDanymGatunku : movieMap.values()) {
+            for (Film filmWDanymGatunku : filmyWDanymGatunku) {
+                if (filmWDanymGatunku.getTilte().equals(title)) {
+                    szukanyFilm = filmWDanymGatunku;
                     break;
                 }
             }
