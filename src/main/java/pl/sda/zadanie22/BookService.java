@@ -16,5 +16,23 @@ public class BookService {
     public List<Book> listOfBooks (){
         return listOfBooks;
     }
+    public List<Book> listOfGivenGenre (){
+        List<Book> tmp = new ArrayList<>();
+        for (Book book : listOfBooks ){
+            if (book.getGenre().equals("Fantasy")){
+                tmp.add(book);
+            }
+        }
+        return  tmp;
+    }
+    public List<Book> listofBooksBefor1999 (){
+        List<Book> tmp = new ArrayList<>();
+        for (Book book : listOfBooks){
+            if (book.getYear()< 1999){
+                tmp.add(book);
+            }
+        }
+        return tmp;
+    }
 
 }
